@@ -57,3 +57,13 @@ where e.first_name like '%z%'
 ```
 ![image](https://user-images.githubusercontent.com/122611882/221823890-7dc47e21-a0bd-4ab9-bc69-d0ef6ff627d6.png)
 
+## 6. From the following tables, write a SQL query to find all departments, including those without employees. Return first name, last name, department ID, department name.
+
+```sql
+select e.first_name, e.last_name, d.department_id, 
+    d.department_name
+from employees e
+right join departments d
+on e.department_id = d.department_id
+```
+![image](https://user-images.githubusercontent.com/122611882/221826279-582be583-bdeb-4424-91cc-009a4520b86d.png)
