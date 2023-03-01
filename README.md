@@ -1,3 +1,4 @@
+                            1. HR database
 ## 1. From the following tables, write a SQL query to find the first name, last name, department number, and department name for each employee.
 ```sql
 select e.first_name, e.last_name, e.department_id, d.department_name
@@ -107,4 +108,49 @@ left join departments d
 on e.department_id = d.department_id
 ```
 ![image](https://user-images.githubusercontent.com/122611882/222033340-e8581fa5-d37e-4016-85dd-0050eb2b0c6c.png)
+
+## 11. From the following table, write a SQL query to find the employees and their managers. Those managers do not work under any manager also appear in the list. Return the first name of the employee and manager.
+```sql
+select e.first_name as "Ishchi_nomi",
+    j.first_name as "Manager"
+from employees e
+left join employees j
+on e.employee_id = j.manager_id
+```
+![image](https://user-images.githubusercontent.com/122611882/222036050-edb37a1d-1968-4022-90dc-39633ed0137d.png)
+
+## 12. From the following tables, write a SQL query to find the employees who work in the same department as the employee with the last name Taylor. Return first name, last name and department ID.
+```sql
+select e.first_name, e.last_name, e.department_id
+from employees e
+join employees j
+on e.department_id = j.department_id
+and j.last_name = 'Taylor'
+```
+![image](https://user-images.githubusercontent.com/122611882/222037208-8874ef22-225c-4ee4-bc75-52671b798530.png)
+
+## 13. From the following tables, write a SQL query to find all employees who joined on or after 1st January 1993 and on or before 31 August 1997. Return job title, department name, employee name, and joining date of the job.
+```sql
+select job_title, department_name, first_name || ' '|| 
+    last_name as employee_name, start_date
+from job_history
+join jobs using (job_id)
+join departments using (department_id)
+join employees using (employee_id)
+where start_date >= '1993-01-01' 
+and start_date <= '1997-08-31'
+```
+![image](https://user-images.githubusercontent.com/122611882/222070963-0a554262-41d8-45cc-8aaf-366a79b2f853.png)
+
+## 14. From the following tables, write a SQL query to calculate the difference between the maximum salary of the job and the employee's salary. Return job title, employee name, and salary difference
+
+```sql
+select 
+    job_title,
+    first_name || ' ' || last_name as employee_name,
+    max_salary - salary as salary_difference
+from employees
+natural join jobs
+```
+![image](https://user-images.githubusercontent.com/122611882/222077964-42051135-a857-4d51-acb4-308e5edc7c88.png)
 
