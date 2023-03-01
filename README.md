@@ -67,3 +67,44 @@ right join departments d
 on e.department_id = d.department_id
 ```
 ![image](https://user-images.githubusercontent.com/122611882/221826279-582be583-bdeb-4424-91cc-009a4520b86d.png)
+
+
+## 7. From the following table, write a SQL query to find the employees who earn less than the employee of ID 182. Return first name, last name and salary.
+```sql
+select e.first_name, e.last_name, e.salary
+from employees e
+join employees j
+on e.salary < j.salary and s.employee_id = 182
+```
+
+## 8. From the following table, write a SQL query to find the employees and their managers. Return the first name of the employee and manager.
+```sql
+select e.first_name as "Ishchi_nomi",
+   m.first_name as "Manager"
+from employees e
+join employees m
+on e.manager_id = m.employee_id;
+```
+![image](https://user-images.githubusercontent.com/122611882/222030962-55f27d63-12b9-4b76-b384-a36c414817c4.png)
+
+## 9. From the following tables, write a SQL query to display the department name, city, and state province for each department.
+
+```sql
+select d.department_name, l.city, l.state_province
+from departments d
+join locations l
+on d.location_id = l.location_id
+```
+![image](https://user-images.githubusercontent.com/122611882/222031731-fad54089-e01d-4d6f-a8eb-ff456ece4517.png)
+
+## 10. From the following tables, write a SQL query to find out which employees have or do not have a department. Return first name, last name, department ID, department name.
+
+```sql
+select e.first_name, e.last_name, e.department_id,
+   d.department_name
+from employees e
+left join departments d
+on e.department_id = d.department_id
+```
+![image](https://user-images.githubusercontent.com/122611882/222033340-e8581fa5-d37e-4016-85dd-0050eb2b0c6c.png)
+
