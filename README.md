@@ -154,3 +154,4 @@ natural join jobs
 ```
 ![image](https://user-images.githubusercontent.com/122611882/222077964-42051135-a857-4d51-acb4-308e5edc7c88.png)
 
+
